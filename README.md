@@ -1,0 +1,2 @@
+#!/gin/bash
+shell basics
