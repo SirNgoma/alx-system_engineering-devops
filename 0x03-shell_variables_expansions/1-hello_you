@@ -1,2 +1,3 @@
 #!/bin/bash
-echo $USER
+export user=whoami
+echo "hello $user"
