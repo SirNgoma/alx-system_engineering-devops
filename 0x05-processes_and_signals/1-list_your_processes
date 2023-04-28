@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+#displsy list of current running processs
+echo "USER PID %CPU %MEM VSZ RSS TTY  STAT START  TIME COMMAND"
+ps axo user,pid,%cpu,%mem,vsz,rss,tty,stat,start,time,cmd

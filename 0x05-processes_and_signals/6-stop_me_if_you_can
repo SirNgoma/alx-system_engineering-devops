@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+#stops 4-to_infinity_and_beyond process
+proc_name="4-to_infinity_and_beyond"
+
+if command -v killproc &> /dev/null; then
+    killproc "$proc_name"
+else
+    pid=$(pgrep "$proc_name")
+    if [[ -n "$pid" ]] ; then
+        kill -15 "$pid"
+    else
+        echo "Process not found: $proc_name"
+        exit 1
+    fi
+fi
