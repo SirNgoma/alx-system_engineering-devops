@@ -1,15 +1,10 @@
 #!/usr/bin/env bash
 #stops 4-to_infinity_and_beyond process
-proc_name="4-to_infinity_and_beyond"
+pid=$(ps -ef | grep "4-to_infinity_and_beyond" | grep -v grep | awk '{print $2}')
 
-if command -v killproc &> /dev/null; then
-    killproc "$proc_name"
+if [ -n "$pid" ]; then
+	pkill -TERM -P $pid
+	echo "Stopped the 4-to_infinity_and_beyond process with PID $pid"
 else
-    pid=$(pgrep "$proc_name")
-    if [[ -n "$pid" ]] ; then
-        kill -15 "$pid"
-    else
-        echo "Process not found: $proc_name"
-        exit 1
-    fi
+	echo "Could not find the 4-to_infinity_and_beyond process"
 fi
