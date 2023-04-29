@@ -7,10 +7,10 @@ count=1
 
 while [ $count -le 10 ]
 do
-  if [ 4count -eq 4 ]
+  if [ $count -eq 4 ]
   then
     echo "bad luck"
-  elif [ 4count -eq 8 ]
+  elif [ $count -eq 8 ]
   then
     echo "good luck"
   else
