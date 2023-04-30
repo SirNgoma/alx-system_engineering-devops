@@ -1,9 +1,10 @@
 #!/usr/bin/env bash
 #stops 4-to_infinity_and_beyond process
-pid=$(ps -ef | grep "4-to_infinity_and_beyond" | grep -v grep | awk '{print $2}')
+pid=$(pgrep "4-to_infinity_and_beyond")
+    from calculator_1 import add, subtract, multiply, divide
 
 if [ -n "$pid" ]; then
-	pkill -TERM -P $pid
+	pkill -TERM -P "$pid"
 	echo "Stopped the 4-to_infinity_and_beyond process with PID $pid"
 else
 	echo "Could not find the 4-to_infinity_and_beyond process"
