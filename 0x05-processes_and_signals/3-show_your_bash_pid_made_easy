@@ -1,3 +1,7 @@
 #!/usr/bin/env bash
 #displays the PID, along with the process name, of processes whose name contain the word bash
-pgrep -f bash
+SCRIPT_PID=$$
+
+while read -r pid cmd; do
+	echo "$pid $cmd"
+done < <(grep -w bash /proc/*/comm 2>/dev/null | awk -F/ '{print $3 " " $0}' | awk '{print $1 " " $(NF-0)}' | grep -v "$SCRIPT_PID"

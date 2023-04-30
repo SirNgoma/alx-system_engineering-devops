@@ -1,12 +1,4 @@
 #!/usr/bin/env bash
-#stops 4-to_infinity_and_beyond process.
-pid=$(pgrep -f 4-to_infinity_and_beyond)
-kill="$pid"
-
-while kill -O "$pid" 2> /dev/null; do
-	seep 1
-done
-
-if kill -O "$pid" 2> /dev/null; then
-	kill -9 "$pid"
-fi
+#stops 4-to_infinity_and_beyond proces
+pid=$(ps aux | grep "4-to_infinity_and_beyond" | grep -v grep | awk '{print $2}')
+kill "$pid"
