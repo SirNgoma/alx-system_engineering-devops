@@ -8,7 +8,7 @@ do
   if [ $count -eq 8 ]
   then
     echo "Best School"
-    echo "Hit"
+    echo "Hi"
   else
     echo "Best School"
   fi
