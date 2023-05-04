@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+#displays listining ports
+lsof -iTCP -sTCP:LISTEN -P -n | awk '{if (NR!=1) { print $9, "->", $1 }}' | awk '{gsub(/.*:/,"",$1);printf("%s %s %s\n", $1, $3, $2)}'
